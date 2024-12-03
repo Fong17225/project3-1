@@ -1,0 +1,67 @@
+﻿@{
+    Layout = "~/Views/Shared/_layoutadmin.cshtml";
+}
+
+<br>
+<br>
+<br>
+
+<div class="container-fluid">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title fw-semibold "></h5>
+            <div class="card">
+              <div class="card-body p-4">
+                <div class="container mt-1 px-2">
+                  <div class="mb-3 d-flex justify-content-between align-items-center">
+                    <div class="d-flex">
+                      <input type="text" class="form-control" placeholder="Search">
+                      <button type="button" class="btn btn-primary btn-search ms-2">Search</button>
+                    </div>
+                            <div><a a asp-area="" asp-controller="Admin" asp-action="admin_student_add" class="btn btn-outline-secondary btn-add m-1">Add</a></div>
+
+                  </div>
+                  <div class="table-responsive">
+                  <table class="table table-responsive table-borderless">
+                      
+                    <thead>
+                      <tr class="">
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th class="th-birth">Date of birth</th>
+                        <th>Email</th>
+                        <th>Image</th>
+                        <th scope="col" width="10%">Action</th>
+                      </tr>
+                    </thead>
+                <tbody>
+                  <tr >
+                    <td>123456</td>
+                    <td>Nguyễn Văn A</td>
+                    <td><i class="fa fa-check-circle-o green"></i><span class="ms-1">01/01/2005</span></td>
+                    <td>nguyenvana123@gmail.com</td>
+                    <td ><img src="../assets/images/profile/user-1.jpg" alt="" style="height: 50px;"></td>
+                    <td class="d-flex align-items-center justify-content-between td-action">
+                      <button type="button" class="btn btn-outline-danger m-1">Delete</button>
+                      <a a asp-area="" asp-controller="Admin" asp-action="adminstudentedit" class="btn btn-outline-success m-1">Edit</a>
+                      <a a asp-area="" asp-controller="Admin" asp-action="admin_course_student" class="btn btn-outline-primary m-1">View</a>
+                    </td>
+                  </tr>
+                  
+                  
+                  
+                  
+                  
+                </tbody>
+              </table>
+              
+                </div>
+                  
+              </div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+          
+      </div>
