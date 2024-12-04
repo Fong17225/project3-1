@@ -65,4 +65,3 @@ packages/
 # JetBrains Rider
 .idea/
 obj/
-Migrations/
