@@ -33,20 +33,22 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td style="border: 1px solid black;">JavaScript</td>
-                                        <td>11-01-2024</td>
-                                        <td>11-02-2024</td>
-                                        <td><span>2</span></td>
-                                        <td class="d-flex align-items-center justify-content-between td-action">
-                                            <button type="button" class="btn btn-outline-danger m-1 ">Delete</button>
-                                            <a a asp-area="" asp-controller="Admin" asp-action="admin_class_edit" class="btn btn-outline-success m-1">Edit</a>
-                                            <a a asp-area="" asp-controller="Admin" asp-action="admin_class_student" class="btn btn-outline-primary m-1">View</a>
-                                        </td>
-                                    </tr>
-                                    
+                                    @foreach (var classes in Model)
+                                    {
+                                        <tr>
+                                            <td style="border: 1px solid black;">@classes.Course?.Name</td>
+                                            <td>11-01-2024</td>
+                                            <td>11-02-2024</td>
+                                            <td><span>2</span></td>
+                                            <td class="d-flex align-items-center justify-content-between td-action">
+                                                <button type="button" class="btn btn-outline-danger m-1 ">Delete</button>
+                                                <a a asp-area="" asp-controller="Admin" asp-action="admin_class_edit" class="btn btn-outline-success m-1">Edit</a>
+                                                <a a asp-area="" asp-controller="Admin" asp-action="admin_class_student" class="btn btn-outline-primary m-1">View</a>
+                                            </td>
+                                        </tr>
 
 
+                                    }
                                 </tbody>
                             </table>
                         </div>

@@ -2,10 +2,14 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Cấu hình DbContext cho Entity Framework
+// Cấu hình DbContext cho Entity Framework với khả năng thử lại khi gặp lỗi tạm thời
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseMySql(builder.Configuration.GetConnectionString("DefaultConnection"),
-        new MySqlServerVersion(new Version(8, 0, 403))));
+    options.UseMySql(
+        builder.Configuration.GetConnectionString("DefaultConnection"),
+        new MySqlServerVersion(new Version(8, 0, 403)),
+        mysqlOptions => mysqlOptions.EnableRetryOnFailure() // Kích hoạt thử lại khi gặp lỗi tạm thời
+    )
+);
 
 // Thêm các dịch vụ cho MVC
 builder.Services.AddControllersWithViews();
@@ -31,7 +35,8 @@ app.UseStaticFiles();
 // Cấu hình các route cho các controller và các action tương ứng
 app.MapControllerRoute(
     "default",
-    "{controller=Home}/{action=Index}/{id?}");
+    "{controller=Home}/{action=Index}/{id?}"
+);
 
 app.MapControllerRoute(
     "admin",

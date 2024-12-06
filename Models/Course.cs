@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Project3.Models
 {
@@ -9,6 +10,7 @@ namespace Project3.Models
         public string Name { get; set; }
         public string? Description { get; set; }
         public decimal Price { get; set; }
+        
         public string? ImageUrl { get; set; }
         public int CategoryId { get; set; }
         public DateTime CreatedAt { get; set; }

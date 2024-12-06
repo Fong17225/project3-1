@@ -1,57 +1,33 @@
+﻿@model Project3.Models.Account
+
 @{
+    ViewData["Title"] = "Add Account";
     Layout = "~/Views/Shared/_layoutadmin.cshtml";
 }
-<br />
-<br />
-<br />
-<div class="container-fluid">
-    <div class="card">
-        <div class="card-body">
-            <h5 class="card-title fw-semibold mb-4"></h5>
-            <div class="card">
-                <div class="card-body p-4">
-                    <h1>Account Edit</h1>
-                    <div class="container mt-5 px-2">
 
-                        <div class="mb-2 d-flex justify-content-between align-items-center">
-                        </div>
-                        <div class="table-responsive">
-                            <table class="table table-responsive table-borderless">
+<h2>Add Account</h2>
 
-
-                                <tbody>
-                                    <tr>
-
-                                        <div class="col-md-12"><label class="labels">Username</label><input type="text" class="form-control" placeholder="Enter Username" value=""></div>
-                                        <div class="col-md-12"><label class="labels">Fullname</label><input type="text" class="form-control" placeholder="Enter Fullname" value=""></div>
-                                        <div class="col-md-12"><label class="labels">Password</label><input type="text" class="form-control" placeholder="Enter Password" value=""></div>
-
-                                        <div class="col-md-12"><label class="labels">Email</label><input type="text" class="form-control" placeholder="Enter Email" value=""></div>
-                                        Role
-                                        <select class="form-control" id="condition">
-                                            <option value="true">Student</option>
-                                            <option value="false">Admin</option>
-                                        </select>
-
-                                        <td><a a asp-area="" asp-controller="Admin" asp-action="admin_account" class="btn btn-outline-success m-1">Save</a></td>
-
-                                    </tr>
-
-
-
-
-
-
-                                </tbody>
-                            </table>
-                            <td><a a asp-area="" asp-controller="Admin" asp-action="admin_account" class="btn btn-outline-secondary m-1">Back</a></td>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-        </div>
+<form asp-action="admin_account_add" method="post">
+    <div class="mb-3">
+        <label asp-for="Username" class="form-label"></label>
+        <input asp-for="Username" class="form-control" />
+        <span asp-validation-for="Username" class="text-danger"></span>
     </div>
-
-</div>
+    <div class="mb-3">
+        <label asp-for="FullName" class="form-label"></label>
+        <input asp-for="FullName" class="form-control" />
+        <span asp-validation-for="FullName" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Email" class="form-label"></label>
+        <input asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Password" class="form-label"></label>
+        <input asp-for="Password" type="password" class="form-control" />
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Add Account</button>
+    <a asp-action="admin_account" class="btn btn-secondary">Cancel</a>
+</form>

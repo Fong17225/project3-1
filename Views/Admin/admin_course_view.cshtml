@@ -1,0 +1,62 @@
+@{
+    Layout = "~/Views/Shared/_layoutadmin.cshtml";
+}
+@model List<Project3.Models.Course>
+<br />
+<br />
+<br />
+<div class="container-fluid">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title fw-semibold mb-4"></h5>
+            <div class="card">
+                <div class="card-body p-4">
+                    <div class="container mt-1 px-2">
+                        <div class="row">
+                            @foreach (var course in Model)
+                            {
+                                <div class="col-sm-5"><img src="@course.ImageUrl" alt=""
+                                    class="w-100 img-course"></div>
+                                <div class="col-sm-7">
+                                    <h2 class="course-heading">@course.Name</h2>
+                                    <div class="course-title">
+
+
+                                        <div class="course-title-item course-duration">Price: <span>$@course.Price.ToString("0.##")</span></div>
+                                        <div class="course-title-item course-discipline">
+                                            Category:
+                                            <span>
+                                                @if (course.CategoryId == 1)
+                                                {
+                                                    @:Frontend
+                                                }
+                                                else if (course.CategoryId == 2)
+                                                {
+                                                    @:Backend
+                                                }
+                                                else
+                                                {
+                                                    @:Unknown Category // Nếu không phải 1 hoặc 2, hiển thị Unknown
+                                                }
+                                            </span>
+                                        </div>
+                                        <div class="course-title-item course-description">Description: <br>
+                                            <div>@course.Description
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                            <div class="text-end">
+                                <a a asp-area="" asp-controller="Admin" asp-action="admin_course" class="btn-right btn btn-outline-secondary m-1">Back</a>
+                                </<div
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</div>
